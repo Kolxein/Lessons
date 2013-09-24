@@ -12,7 +12,15 @@ class Employee
 		int GetYearsOfService()const {return itsyearsOfService;}
 		void Salary(int salary){itssalary = salary;}
 		int GetSalary()const {return itssalary;}
-		int Earnings()const {return 12 * itsyearsOfService * itssalary;}
+		int Earnings()const 
+		{
+			int x = 12 * itsyearsOfService * itssalary;
+			if ((x / 100 - x / 1000 * 10 ) > 5 )
+			{
+				return x / 1000 * 1000 + 1000;
+			}
+			else return  x / 1000 * 1000;
+		}
 	private:		
 		int itsage;
 		int itsyearsOfService;
