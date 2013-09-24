@@ -4,7 +4,7 @@ using namespace std;
 
 float Division(int x, int y)
 {
-	float z;
+	float z = 0;
 	if (0 == y)
 	{
 		cout << "Eror!";

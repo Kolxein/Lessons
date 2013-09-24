@@ -21,5 +21,4 @@ stroka 6  y = myFunc(int);  => y = myFunc(x);
 net v main - return 0;
 void nevivodit return;
 // Exercises 4
-v (unsigned short int y) nelza prisvoit (int f())
 */

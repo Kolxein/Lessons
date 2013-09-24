@@ -11,7 +11,7 @@ float Division(unsigned short int x, unsigned short int y)
 	}
 	else 
 	{
-		z = x / y;
+		z = x / y;    // z = float(x)/float(y)
 	}
 	return z;
 }
@@ -23,3 +23,8 @@ int main()
 	cout << Division(x,y);
 	return 0;
 }
+/*
+float(x)/float(y) 
+(float)x/(float)y -#C 
+static_cast<float>(x)/static_cast<float>(y) - Ñ++ 
+*/
