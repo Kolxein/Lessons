@@ -16,16 +16,24 @@ class Dog
 	private:
 		int itsAge;
 };
-Dog& MakeDog(int age)
+Dog* MakeDog(int age)
 {
 	Dog * pDog = new Dog(age);
-	return *pDog;
+	return pDog;
 }
 int main()
 {
 	int age = 7;
-	Dog Boof = MakeDog(age);
-	cout << "Boof is " << Boof.GetAge() << " years old!\n";
+	cin >> age;
+	Dog* Boof = MakeDog(age);
+	cout << "Boof is " << Boof->GetAge() << " years old!\n";
+	delete Boof;
+	Boof = 0;
+	cin >> age;
+	Dog* Pool = MakeDog(age);
+	cout << "Pool is " << Pool->GetAge() << " years old!\n";
+	delete Pool;
+	Pool =0;
 	return 0;
 }
 
