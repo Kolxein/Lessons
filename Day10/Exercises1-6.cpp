@@ -5,6 +5,7 @@ class Circle
 {
 	public:
 		Circle();
+		Circle(int);
 		Circle(Circle & rhs);
 		~Circle();
 		int GetRadius() {return *itsRadius;}
@@ -15,15 +16,20 @@ class Circle
 		int *itsRadius;
 };
 Circle::Circle()
-	//:*itsRadius(1)
+	:itsRadius(new int (1))
+{
+	//itsRadius = new int;  //ravnosilno zapisi vishe
+	//*itsRadius = 0;
+
+}
+Circle::Circle(int r)
+	//:itsRadius(new int(r)) //ravnosilno zapisi tela konsteyktora
 {
 	itsRadius = new int;
-	*itsRadius = 0;
-
+	*itsRadius = r;
 }
 
 Circle::Circle( Circle & rhs)
-	//:*itsRadius(r)
 {
 	itsRadius = new int;
 	*itsRadius = rhs.GetRadius(); //dostup otkrutuy
@@ -40,7 +46,7 @@ const Circle& Circle::operator++()
 	++*itsRadius;
 	return *this;
 }
-const Circle Circle::operator++(int x)
+const Circle Circle::operator++(int)
 {
 	Circle temp(*this);
 	++*itsRadius;
@@ -50,7 +56,8 @@ int main()
 {
 	Circle Umolchania;
 	Circle Smol;
-	Smol.SetRadius(5);
+	Circle Big(8);
+	//Smol.SetRadius(5);
 	cout << "Circle radius Smol = " << Smol.GetRadius() << "\n";
 	Smol++;
 	cout << "Circle radius Smol = " << Smol.GetRadius() << "\n";
@@ -58,6 +65,7 @@ int main()
 	cout << "Circle radius Smol = " << Smol.GetRadius() << "\n";
 	
 	cout << "Circle radius Umolchania = " << Umolchania.GetRadius() << "\n";
+	cout << "Circle radius Big = " << Big.GetRadius() << "\n";
 	
 	return 0;
 }
