@@ -12,6 +12,11 @@ class Circle
 		void SetRadius(int radius) {*itsRadius = radius;}
 		const Circle& operator++ ();   		//preinkrement
 		const Circle operator++ (int); 		//postinkremrnt
+		Circle operator=(const Circle& rhs)
+		{
+			*itsRadius = rhs.GetRadius;
+			return Circle&(*itsRadius);
+		}
 	private:
 		int *itsRadius;
 };
