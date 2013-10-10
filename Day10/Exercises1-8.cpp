@@ -12,6 +12,11 @@ class Circle
 		void SetRadius(int radius) {*itsRadius = radius;}
 		const Circle& operator++ ();   		//preinkrement
 		const Circle operator++ (int); 		//postinkremrnt
+		const Circle& operator= (const Circle & rhs)
+		{
+			*itsRadius = rhs.GetRadius();
+			return *this;
+		}
 	private:
 		int *itsRadius;
 };
@@ -63,6 +68,8 @@ int main()
 	++Smol;
 	cout << "Circle radius Smol = " << Smol.GetRadius() << "\n";
 	cout << "Circle radius Umolchania = " << Umolchania.GetRadius() << "\n";
+	Smol = Big;
+	cout << "Circle radius Smol = " << Smol.GetRadius() << "\n";
 	cout << "Circle radius Big = " << Big.GetRadius() << "\n";
 	
 	return 0;
