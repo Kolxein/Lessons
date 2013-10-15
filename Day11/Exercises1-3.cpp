@@ -17,7 +17,7 @@ Shape::Shape(int r)
 {
 };
 
-class Rectangle : public Shape
+class Rectangle :public Shape
 {
 	public:
 		Rectangle():Shape(){};
@@ -45,7 +45,7 @@ Rectangle::Rectangle(int length,int width)
 {
 }
 
-class Square : public Rectangle
+class Square :public Rectangle
 {
 	public:
 		Square() :Rectangle(){};
@@ -53,7 +53,6 @@ class Square : public Rectangle
 };
 
 Square::Square(int length)
-	//:Rectangle(l)
 {
 	SetLength(length);
 };
