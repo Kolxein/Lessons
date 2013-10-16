@@ -7,7 +7,7 @@ class Shape
 		Shape():itsPoint(int (1)){};
 		Shape(int);
 		Shape (const Shape&);
-		virtual ~Shape();
+		virtual ~Shape(){};
 		virtual Shape* Clone(){return new Shape(*this);}
 		int GetPoint() const {return itsPoint;}
 		void SetPoint(int point) {itsPoint = point;}
@@ -32,7 +32,7 @@ class Rectangle : public Shape
 		Rectangle(int);
 		Rectangle(int, int);
 		Rectangle(const Rectangle&);
-		virtual ~Rectangle();
+		virtual ~Rectangle(){};
 		virtual Rectangle* Clone(){return new Rectangle(*this);}
 		int GetLength() const {return itsLength;}
 		int GetWidth() const {return itsWidth;}
@@ -64,7 +64,7 @@ class Square : public Rectangle
 		Square();
 		Square(int);
 		Square(const Square&);
-		virtual ~Square();
+		virtual ~Square(){};
 		virtual Square* Clone(){return new Square(*this);}
 };
 Square::Square(const Square& rhs):Rectangle(rhs){};
