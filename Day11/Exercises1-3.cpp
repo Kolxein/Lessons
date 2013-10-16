@@ -21,7 +21,6 @@ class Rectangle :public Shape
 {
 	public:
 		Rectangle():Shape(){};
-		Rectangle(int);
 		Rectangle(int, int);
 		int GetLength() const {return itsLength;}
 		int GetWidth() const {return itsWidth;}
@@ -32,15 +31,9 @@ class Rectangle :public Shape
 		int itsWidth;
 };
 
-Rectangle::Rectangle(int length)
-	:Shape()
-	,itsLength(length)
-{
-}
 
 Rectangle::Rectangle(int length,int width)
-	:Shape()
-	,itsLength(length)
+	:itsLength(length)
 	,itsWidth(width)
 {
 }

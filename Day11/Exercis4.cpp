@@ -6,6 +6,9 @@ class Shape
 	public:
 		Shape():itsPoint(int (1)){};
 		Shape(int);
+		Shape (const Shape&);
+		virtual ~Shape();
+		virtual Shape* Clone(){return new Shape(*this);}
 		int GetPoint() const {return itsPoint;}
 		void SetPoint(int point) {itsPoint = point;}
 	protected:
@@ -16,13 +19,21 @@ Shape::Shape(int r)
 	:itsPoint(r)
 {
 };
+Shape::Shape(const Shape& rhs):itsPoint(rhs.GetPoint())
+{
+};
 
 class Rectangle : public Shape
 {
 	public:
-		Rectangle():Shape(){};
+		Rectangle():Shape()
+			,itsLength(int (0))
+			,itsWidth(int (0)){};
 		Rectangle(int);
 		Rectangle(int, int);
+		Rectangle(const Rectangle&);
+		virtual ~Rectangle();
+		virtual Rectangle* Clone(){return new Rectangle(*this);}
 		int GetLength() const {return itsLength;}
 		int GetWidth() const {return itsWidth;}
 		void SetLength(int length) {itsLength = length;}
@@ -35,22 +46,28 @@ class Rectangle : public Shape
 Rectangle::Rectangle(int length)
 	:Shape()
 	,itsLength(length)
+	,itsWidth(int (0))
 {
-}
-
+};
 Rectangle::Rectangle(int length,int width)
-	:Shape()
-	,itsLength(length)
+	:itsLength(length)
 	,itsWidth(width)
 {
-}
+};
+Rectangle::Rectangle(const Rectangle& rhs):Shape(rhs)
+{
+};
 
 class Square : public Rectangle
 {
 	public:
-		Square() :Rectangle(){};
+		Square();
 		Square(int);
+		Square(const Square&);
+		virtual ~Square();
+		virtual Square* Clone(){return new Square(*this);}
 };
+Square::Square(const Square& rhs):Rectangle(rhs){};
 
 Square::Square(int length)
 	//:Rectangle(l)
@@ -74,5 +91,5 @@ int main()
 	cout << "Length mol = " << mol.GetLength() << "\n";
 	cout << "Width mol = " << mol.GetWidth() << "\n";
 	return 0;
-}
+};
 
