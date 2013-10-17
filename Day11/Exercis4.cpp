@@ -50,7 +50,7 @@ class Square : public Rectangle
 };
 
 Square::Square(const Square& rhs)
-	: Rectangle(rhs.itsLength, rhs.itsLength)
+	: Rectangle(rhs)
 {};
 
 Square::Square(int length)
