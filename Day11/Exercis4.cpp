@@ -19,7 +19,7 @@ class Rectangle : public Shape
 		Rectangle(int, int);
 		Rectangle(const Rectangle&);
 		virtual ~Rectangle(){};
-		virtual Rectangle* Clone(){return new Rectangle(*this);}
+		virtual Shape* Clone(){return new Rectangle(*this);}
 		int GetLength() const {return itsLength;}
 		int GetWidth() const {return itsWidth;}
 		void SetLength(int length) {itsLength = length;}
@@ -46,7 +46,7 @@ class Square : public Rectangle
 		Square(int);
 		Square(const Square&);
 		virtual ~Square(){};
-		virtual Square* Clone(){return new Square(*this);}
+		virtual Shape* Clone(){return new Square(*this);}
 };
 
 Square::Square(const Square& rhs)
