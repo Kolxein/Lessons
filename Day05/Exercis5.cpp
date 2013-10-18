@@ -11,7 +11,10 @@ float Division(unsigned short int x, unsigned short int y)
 	}
 	else 
 	{
-		z = x / y;    // z = float(x)/float(y)
+		z = x / float (y);
+		// z = float(x)/float(y) odin doljen bit' crazu ykazan kak drobniy xot' i int(x)
+		//(float)x/(float)y - ths C stail 
+		//static_cast<float>(x)/static_cast<float>(y) - this C++ stail
 	}
 	return z;
 }
