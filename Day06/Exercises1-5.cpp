@@ -15,13 +15,13 @@ class Employee
 		int Earnings()const 
 		{
 			int x = 12 * itsyearsOfService * itssalary;
-			if ((x / 100 - x / 1000 * 10 ) > 5 )
+			if ((x % 1000 ) > 500 ) // % ostatok ot delenia 2400 % 1000 = 400
 			{
-				return x / 1000 * 1000 + 1000;
+				return x + 1000 - x % 1000 ;
 			}
-			else return  x / 1000 * 1000;
+			else return x - x % 1000;
 		}
-	private:		
+	private:
 		int itsage;
 		int itsyearsOfService;
 		int itssalary;
@@ -31,13 +31,16 @@ Employee::Employee(int a, int b, int c)
 	,itsyearsOfService(b)
 	,itssalary(c)
 {
+	cout << "Vozrast\n";
 	cin >> a;
 	itsage = a;
+	cout << "Staj raboti\n";
 	cin >> b;
 	itsyearsOfService = b;
+	cout << "Salari\n";
 	cin >> c;
 	itssalary = c;
-}
+};
 int main()
 {
 	Employee Fil(0, 0, 0);
@@ -51,5 +54,4 @@ int main()
 	cout << Bob.GetSalary() << "\n";
 	cout << Bob.Earnings();
 	return 0;
-}
-
+};
