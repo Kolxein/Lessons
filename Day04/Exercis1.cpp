@@ -6,7 +6,7 @@ int main()
 	int x, y;
 	cin >> x;
 	cin >> y;
-	x < y ? y = x : x = y;
+	x < y ? y = x : x = y; /*словие Если в сокращенной форме
 	/*if (x < y)
 	{
 		y = x;
